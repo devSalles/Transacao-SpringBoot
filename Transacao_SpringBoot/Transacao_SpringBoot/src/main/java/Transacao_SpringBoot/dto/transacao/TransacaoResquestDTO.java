@@ -1,7 +1,6 @@
 package Transacao_SpringBoot.dto.transacao;
 
 import Transacao_SpringBoot.Enum.TipoTransacao;
-import Transacao_SpringBoot.core.exception.IdNaoEncontrado;
 import Transacao_SpringBoot.model.Transacao;
 import Transacao_SpringBoot.model.Usuario;
 import jakarta.persistence.EnumType;
@@ -49,9 +48,6 @@ public class TransacaoResquestDTO {
         if(transacao.getTipoTransacao()!=null)
         {
             transacao.setUsuario(this.usuario);
-        }else
-        {
-            throw new IdNaoEncontrado();
         }
 
         return transacao;

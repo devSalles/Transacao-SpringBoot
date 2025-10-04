@@ -15,7 +15,7 @@ public record TransacaoResponseDTO(
         TipoTransacao tipoTransacao,
         Usuario usuario
 ) {
-    public TransacaoResponseDTO fromTransacao(Transacao transacao)
+    public static TransacaoResponseDTO fromTransacao(Transacao transacao)
     {
         return new TransacaoResponseDTO(
                 transacao.getId(),transacao.getDescricao(),transacao.getValor(),transacao.getData(),transacao.getTipoTransacao(),transacao.getUsuario());

@@ -14,7 +14,7 @@ public record UsuarioResponseDTO(
         LocalDate dataCadastro,
         List<Transacao> transacao
 ) {
-    public UsuarioResponseDTO fromUsuario(Usuario usuario)
+    public static UsuarioResponseDTO fromUsuario(Usuario usuario)
     {
         return new UsuarioResponseDTO(usuario.getId(),usuario.getNome(),usuario.getCpf(),usuario.getEmail(),usuario.getDataCadastro(),usuario.getTransacao());
     }
