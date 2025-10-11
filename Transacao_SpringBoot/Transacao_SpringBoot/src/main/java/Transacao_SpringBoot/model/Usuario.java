@@ -1,5 +1,6 @@
 package Transacao_SpringBoot.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -9,7 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
-
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -34,9 +35,13 @@ public class Usuario {
     private String email;
 
     @Column(nullable = false) @NotNull
-    private LocalDate dataCadastro;
+    private LocalDate dataCadastro=LocalDate.now();
+
+    @Column(nullable = false)
+    private BigDecimal saldo=BigDecimal.ZERO;
 
     //Relacionamento 1:N (um usuário pode ter várias transações)
     @OneToMany(mappedBy = "usuario")
+    @JsonManagedReference
     private List<Transacao>transacao;
 }

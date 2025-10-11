@@ -1,6 +1,7 @@
 package Transacao_SpringBoot.model;
 
 import Transacao_SpringBoot.Enum.TipoTransacao;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -8,7 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -35,9 +35,13 @@ public class Transacao {
     @Column(nullable = false) @NotNull @Enumerated(EnumType.STRING)
     private TipoTransacao tipoTransacao;
 
+    @Column(nullable = false)
+    private String categoria;
+
     //Relacionamento N:1 (várias transações pertencem a um usuário)
     @ManyToOne
     @JoinColumn(name = "usuario_id",nullable = false)
+    @JsonBackReference
     private Usuario usuario;
 
 
