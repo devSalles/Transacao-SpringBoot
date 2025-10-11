@@ -32,13 +32,13 @@ public class UsuarioService {
         return this.usuarioRepository.save(usuarioSalvar);
     }
 
-    public UsuarioResponseDTO showByIDUsuario(Long id)
+    public UsuarioResponseDTO ListarPorID(Long id)
     {
         Usuario usuarioID = this.usuarioRepository.findById(id).orElseThrow(IdNaoEncontrado::new);
         return UsuarioResponseDTO.fromUsuario(usuarioID);
     }
 
-    public UsuarioResponseDTO showByCpfUsuario(String cpf)
+    public UsuarioResponseDTO ListarPorCPF(String cpf)
     {
         Usuario usuarioCPF = this.usuarioRepository.findByCpf(cpf);
 
@@ -50,14 +50,16 @@ public class UsuarioService {
         return UsuarioResponseDTO.fromUsuario(usuarioCPF);
     }
 
-    public List<UsuarioResponseDTO> showAll()
+    public List<UsuarioResponseDTO> ListarTodos()
     {
-        List<Usuario>showAllUsuario=this.usuarioRepository.findAll();
+        List<Usuario>listarTodos=this.usuarioRepository.findAll();
 
-        if(showAllUsuario.isEmpty())
+        if(listarTodos.isEmpty())
         {
             throw new BancoVazioException();
         }
-        return showAllUsuario.stream().map(user->UsuarioResponseDTO.fromUsuario(user)).toList();
+
+        //Retorna todos os usuários
+        return listarTodos.stream().map(u->UsuarioResponseDTO.fromUsuario(u)).toList();
     }
 }
