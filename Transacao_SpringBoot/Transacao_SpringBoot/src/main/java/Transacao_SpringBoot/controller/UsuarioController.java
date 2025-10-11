@@ -17,27 +17,27 @@ public class UsuarioController {
 
     private final UsuarioService usuarioService;
 
-    @PostMapping("/new")
+    @PostMapping("/novo-usuario")
     public ResponseEntity<Object> postUsuario(@Valid @RequestBody UsuarioRequestDTO usuarioRequestDTO)
     {
         return ResponseEntity.status(HttpStatus.OK).body(this.usuarioService.postUsuario(usuarioRequestDTO));
     }
 
-    @GetMapping("/show-by-id/{id}")
+    @GetMapping("/listar-id/{id}")
     public ResponseEntity<Object> showById(@PathVariable Long id)
     {
-        return ResponseEntity.status(HttpStatus.OK).body(this.usuarioService.showByIDUsuario(id));
+        return ResponseEntity.status(HttpStatus.OK).body(this.usuarioService.ListarPorID(id));
     }
 
-    @GetMapping("/show-by-cpf/{cpf}")
+    @GetMapping("/listar-cpf/{cpf}")
     public ResponseEntity<Object> showById(@PathVariable String cpf)
     {
-        return ResponseEntity.status(HttpStatus.OK).body(this.usuarioService.showByCpfUsuario(cpf));
+        return ResponseEntity.status(HttpStatus.OK).body(this.usuarioService.ListarPorCPF(cpf));
     }
 
-    @GetMapping("/showAll")
+    @GetMapping("/listar-todos")
     public ResponseEntity<Object> showAll()
     {
-        return ResponseEntity.status(HttpStatus.OK).body(this.usuarioService.showAll());
+        return ResponseEntity.status(HttpStatus.OK).body(this.usuarioService.ListarTodos());
     }
 }
