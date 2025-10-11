@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ExceptionHandlers {
 
-    //Exceção para entrada inválida de dados
+    //Exceção para entrada inválida de dados via Bean Validation
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<MessageRestError> entradaDeDadosInvalida(MethodArgumentNotValidException ex)
     {
@@ -18,6 +18,14 @@ public class ExceptionHandlers {
                 ex.getBindingResult().getFieldErrors().stream().map(error->error.getDefaultMessage()).findFirst().orElse("Erro de validação");
 
         MessageRestError messageRestError = new MessageRestError(HttpStatus.BAD_REQUEST,errorMessage);
+        return ResponseEntity.badRequest().body(messageRestError);
+    }
+
+    //Trata exceções de argumentos inválidos lançadas manualmente na aplicação
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<MessageRestError> entradaDeDadosInvalidaGlobais(IllegalArgumentException ex)
+    {
+        MessageRestError messageRestError = new MessageRestError(HttpStatus.BAD_REQUEST, ex.getMessage());
         return ResponseEntity.badRequest().body(messageRestError);
     }
 
