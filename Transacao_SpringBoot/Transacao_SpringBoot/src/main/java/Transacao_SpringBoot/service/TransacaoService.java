@@ -63,6 +63,7 @@ public class TransacaoService {
         return this.transacaoRepository.findByUsuarioAndCategoria(usuarioCPF,categoria);
     }
 
+    //Listagem por tipo de transação
     public List<Transacao> listarPorTipo(String cpf, TipoTransacao tipoTransacao)
     {
         Usuario usuarioCPF = buscaPorCPF(cpf);
@@ -77,6 +78,7 @@ public class TransacaoService {
         return this.transacaoRepository.findByUsuarioAndDataBetween(usuarioCPF,inicio,fim);
     }
 
+    //Listagem de todos os registros de transação
     public List<Transacao> buscarTodos()
     {
         List<Transacao>listarTodos=this.transacaoRepository.findAll();
@@ -114,6 +116,7 @@ public class TransacaoService {
         usuarioCPF.setSaldo(saldo);
         this.usuarioRepository.save(usuarioCPF);
 
+        //Retorna saldo do usuário
         return saldo;
     }
 

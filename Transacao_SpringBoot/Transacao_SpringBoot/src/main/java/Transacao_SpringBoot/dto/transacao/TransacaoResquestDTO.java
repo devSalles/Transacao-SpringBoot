@@ -35,6 +35,7 @@ public class TransacaoResquestDTO {
     @NotNull(message = "Categoria obrigatória") @NotBlank(message = "Categoria obrigatória")
     private String categoria;
 
+    //Metodo de transferência de dados
     public Transacao toTransacao(Usuario usuario)
     {
         Transacao transacao = new Transacao();

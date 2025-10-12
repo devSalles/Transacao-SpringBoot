@@ -15,7 +15,7 @@ public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
 
-
+    //Metodo responsável por salvar usuário
     public Usuario postUsuario(UsuarioRequestDTO usuarioRequestDTO)
     {
         if(this.usuarioRepository.findByCpf(usuarioRequestDTO.getCpf())!=null)
@@ -38,6 +38,7 @@ public class UsuarioService {
         return UsuarioResponseDTO.fromUsuario(usuarioID);
     }
 
+    //Metodo responsável por buscar por CPF
     public UsuarioResponseDTO ListarPorCPF(String cpf)
     {
         Usuario usuarioCPF = this.usuarioRepository.findByCpf(cpf);
@@ -50,6 +51,7 @@ public class UsuarioService {
         return UsuarioResponseDTO.fromUsuario(usuarioCPF);
     }
 
+    //Listagem geral dos registros
     public List<UsuarioResponseDTO> ListarTodos()
     {
         List<Usuario>listarTodos=this.usuarioRepository.findAll();

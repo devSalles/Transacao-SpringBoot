@@ -10,6 +10,7 @@ public record UsuarioResponseDTO(
         String email,
         LocalDate dataCadastro
 ) {
+    //Responsável por exibir os dados
     public static UsuarioResponseDTO fromUsuario(Usuario usuario)
     {
         return new UsuarioResponseDTO(usuario.getId(),usuario.getNome(),usuario.getCpf(),usuario.getEmail(),usuario.getDataCadastro());

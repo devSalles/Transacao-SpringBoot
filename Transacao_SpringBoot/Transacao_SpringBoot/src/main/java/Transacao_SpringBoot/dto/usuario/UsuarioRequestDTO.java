@@ -35,6 +35,7 @@ public class UsuarioRequestDTO {
     @CPF(message = "Formato de CPF inválido")
     private String cpf;
 
+    //Metodo de transferência de dados
     public Usuario toUsuario()
     {
         Usuario usuario = new Usuario();
