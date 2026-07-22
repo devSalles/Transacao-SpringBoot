@@ -1,17 +1,22 @@
-Projeto desenvolvido em **Java + Spring Boot**, com o objetivo de criar uma **API REST** para controle de usuários e suas **transações financeiras** (receitas e despesas), mantendo o **saldo atualizado automaticamente**.
+# 💰 Sistema de Gestão Financeira Pessoal
+
+## 📌 Visão Geral
+
+API REST desenvolvida em **Java com Spring Boot** para gerenciamento de usuários e suas **transações financeiras**, permitindo o controle de receitas, despesas, categorias e saldo individual.
+
+O sistema aplica regras de negócio para garantir a **integridade das transações**, a **unicidade dos dados dos usuários** e a **atualização automática do saldo** com base nas movimentações financeiras realizadas.
 
 ---
+## 🧱 Tecnologias Utilizadas
 
-## 🚀 **Tecnologias Utilizadas**
-- **Java 17+**
-- **Spring Boot**
-- **Spring Data JPA**
-- **Hibernate**
-- **Bean Validation**
-- **Lombok**
-- **MySQL**
-- **Maven**
-
+![Java](https://img.shields.io/badge/Java-17+-orange?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?style=for-the-badge&logo=springboot&logoColor=white)
+![Spring Data JPA](https://img.shields.io/badge/Spring%20Data%20JPA-3.x-brightgreen?style=for-the-badge&logo=spring&logoColor=white)
+![Hibernate](https://img.shields.io/badge/Hibernate-ORM596?style=for-the-badge&logo=hibernate&logoColor=white)
+![Jakarta Validation](https://img.shields.io/badge/Jakarta%20Validation-3.x-orange?style=for-the-badge)
+![Lombok](https://img.shields.io/badge/Lombok-1.18.x-red?style=for-the-badge)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-blue?style=for-the-badge&logo=mysql&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-3.x-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
 ---
 
 ## 🧩 **Funcionalidades**
