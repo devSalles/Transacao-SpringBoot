@@ -33,22 +33,34 @@ O sistema aplica regras de negócio para garantir a **integridade das transaçõ
 
 ---
 
-## 🏗️ **Arquitetura do Projeto**
+## 🏗️ Arquitetura do Projeto
 
-O sistema segue a arquitetura em camadas:
+O sistema segue uma arquitetura em camadas, promovendo a separação de responsabilidades, organização do código e facilidade de manutenção.
 
 ### 📚 Camadas explicadas:
-- **Controller:** responsável por receber as requisições HTTP e retornar respostas adequadas;  
-- **Service:** contém as regras de negócio e a lógica de processamento;  
-- **Repository:** camada de persistência, utilizando JPA para acesso ao banco de dados;  
-- **Entity:** representa as tabelas do banco de dados (modelos de domínio);  
-- **DTO (Data Transfer Object):** responsável pela transferência de dados entre as camadas da aplicação, garantindo segurança e evitando o envio de entidades completas nas requisições e respostas.
+
+- **Controller:** responsável por receber as requisições HTTP e retornar respostas adequadas;
+
+- **Service:** contém as regras de negócio e a lógica de processamento;
+
+- **Repository:** camada de persistência, utilizando JPA para acesso ao banco de dados;
+
+- **Model:** representa os modelos de domínio da aplicação;
+
+- **DTO (Data Transfer Object):** responsável pela transferência de dados entre as camadas da aplicação, garantindo segurança e evitando o envio de entidades completas nas requisições e respostas;
+
+- **Enum:** reúne os enumeradores utilizados nas regras de negócio da aplicação;
+
+- **Core/Exception:** centraliza as exceções personalizadas e o tratamento de erros da aplicação;
+
+- **Core/Infra:** contém configurações e componentes relacionados à infraestrutura do sistema.
 
 ---
 
 ## ⚙️ **Rotas da API**
 
 ### 👤 **Usuário**
+
 | Método | Rota | Descrição |
 |:-------:|:---------------------------|:------------------------------------|
 | **POST** | `/usuario/novo-usuario` | Cadastra um novo usuário |
@@ -56,15 +68,69 @@ O sistema segue a arquitetura em camadas:
 | **GET** | `/usuario/listar-id/{id}` | Busca um usuário pelo ID |
 | **GET** | `/usuario/listar-todos` | Lista todos os usuários cadastrados |
 
+#### Exemplo de requisição — `POST /usuario/novo-usuario`
+
+```json
+{
+  "nome": "Bernardo Salles",
+  "dataCadastro": "2026-07-22",
+  "email": "bernardo.salles@email.com",
+  "cpf": "529.982.247-25"
+}
+```
 ---
 
 ### 💳 **Transação**
+
 | Método | Rota | Descrição |
 |:-------:|:--------------------------------------------|:----------------------------------------------|
 | **POST** | `/transacao/nova-transacao/{cpf}` | Cadastra uma nova transação para o usuário |
 | **GET** | `/transacao/usuario-cpf/{cpf}` | Lista todas as transações de um usuário |
-| **GET** | `/transacao/tipo/{cpf}/{tipoTransacao}` | Filtra transações por tipo (RECEITA ou DESPESA) |
+| **GET** | `/transacao/tipo/{cpf}/{tipoTransacao}` | Filtra transações por tipo (`RECEITA` ou `DESPESA`) |
 | **GET** | `/transacao/listar-categoria/{cpf}/{categoria}` | Filtra transações por categoria |
 | **GET** | `/transacao/data/{cpf}/{inicio}/{fim}` | Filtra transações por intervalo de datas |
-| **GET** | `/transacao//listar-todos` | Lista todas as transações |
+| **GET** | `/transacao/listar-todos` | Lista todas as transações |
 | **GET** | `/transacao/saldo/{cpf}` | Retorna o saldo total de um usuário |
+
+#### Exemplo de requisição — `POST /transacao/nova-transacao/{cpf}`
+CPF enviado como parâmetro na URL:
+
+`/transacao/nova-transacao/529.982.247-25`
+
+```json
+{
+  "descricao": "Pagamento de salário",
+  "valor": 3500.00,
+  "data": "2026-07-22",
+  "tipo": "RECEITA",
+  "categoria": "Salário"
+}
+```
+---
+
+## 📁 Estrutura do Projeto
+
+```text
+src/
+└── main/
+    └── java/
+        └── Transacao_SpringBoot/
+            ├── controller/
+            │
+            ├── core/
+            │   ├── exception/
+            │   └── infra/
+            │
+            ├── dto/
+            │   ├── transacao/
+            │   └── usuario/
+            │
+            ├── Enum/
+            │
+            ├── model/
+            │
+            ├── repository/
+            │
+            ├── service/
+            │
+            └── TransacaoSpringBootApplication.java
