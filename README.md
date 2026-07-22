@@ -9,13 +9,14 @@ O sistema aplica regras de negócio para garantir a **integridade das transaçõ
 ---
 ## 🧱 Tecnologias Utilizadas
 
-![Java](https://img.shields.io/badge/Java-17+-orange?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?style=for-the-badge&logo=springboot&logoColor=white)
-![Spring Data JPA](https://img.shields.io/badge/Spring%20Data%20JPA-3.x-brightgreen?style=for-the-badge&logo=spring&logoColor=white)
-![Hibernate](https://img.shields.io/badge/Hibernate-ORM596?style=for-the-badge&logo=hibernate&logoColor=white)
-![Jakarta Validation](https://img.shields.io/badge/Jakarta%20Validation-3.x-orange?style=for-the-badge)
+![Java](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.6-brightgreen?style=for-the-badge&logo=springboot&logoColor=white)
+![Spring Web](https://img.shields.io/badge/Spring%20Web-3.5.6-brightgreen?style=for-the-badge&logo=spring&logoColor=white)
+![Spring Data JPA](https://img.shields.io/badge/Spring%20Data%20JPA-3.5.6-brightgreen?style=for-the-badge&logo=spring&logoColor=white)
+![Jakarta Validation](https://img.shields.io/badge/Jakarta%20Validation-3.5.6-orange?style=for-the-badge)
 ![Lombok](https://img.shields.io/badge/Lombok-1.18.x-red?style=for-the-badge)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-blue?style=for-the-badge&logo=mysql&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger%2FOpenAPI-2.8.6-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
 ![Maven](https://img.shields.io/badge/Maven-3.x-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
 ---
 
